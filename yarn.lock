@@ -3977,7 +3977,7 @@ react-kawaii@^0.8.0:
 
 "react-native-kawaii@https://github.com/jzarca01/react-native-kawaii":
   version "0.0.1"
-  resolved "https://github.com/jzarca01/react-native-kawaii#dcaecde9fc7acfb1509f6b86d66a6f378f3f3129"
+  resolved "https://github.com/jzarca01/react-native-kawaii#09ee4f8f8372b0698dc60f1c4aa5268f706d57e1"
   dependencies:
     fs "^0.0.1-security"
     prop-types "^15.6.2"
