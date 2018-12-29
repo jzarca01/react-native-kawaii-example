@@ -1,22 +1,41 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {
-  Backpack,
-  Browser,
-  CreditCard,
-  Ghost,
-  IceCream,
-  Mug,
-  Planet,
-  SpeechBubble
-} from 'react-native-kawaii';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Backpack } from 'react-native-kawaii';
+
+const MOODS = [
+  'sad',
+  'shocked',
+  'happy',
+  'blissful',
+  'lovestruck',
+  'excited',
+  'ko'
+];
 
 export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      mood: 'happy'
+    };
+    this.changeMood = this.changeMood.bind(this);
+  }
+
+  changeMood() {
+    const currentMood = this.state.mood;
+    const otherMoods = MOODS.filter(mood => mood !== currentMood);
+    this.setState({
+      mood: otherMoods[Math.floor(Math.random() * otherMoods.length)]
+    });
+  }
   render() {
+    const { mood } = this.state;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React-native Kawaii !</Text>
-        <SpeechBubble mood="ko" />
+        <TouchableOpacity onPress={this.changeMood}>
+          <Backpack mood={mood} />
+        </TouchableOpacity>
         <Text style={styles.instructions}>
           Don't forget to install react-native-svg too
         </Text>
